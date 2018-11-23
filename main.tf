@@ -7,6 +7,12 @@ resource "aws_ecr_repository" "default" {
   name = "${var.name}"
 }
 
+# https://www.terraform.io/docs/providers/aws/r/ecr_repository_policy.html
+resource "aws_ecr_repository_policy" "default" {
+  repository = "${aws_ecr_repository.default.name}"
+  policy     = "${data.aws_iam_policy_document.push_and_pull.json}"
+}
+
 # Allows specific accounts to pull images
 data "aws_iam_policy_document" "only_pull" {
   statement {
