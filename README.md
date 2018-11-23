@@ -8,11 +8,29 @@ Terraform module template following [Standard Module Structure](https://www.terr
 
 ## Usage
 
-Named `terraform-<PROVIDER>-<NAME>`. Module repositories must use this three-part name format.
+### Minimal
 
-```sh
-curl -fsSL https://raw.githubusercontent.com/tmknom/terraform-aws-ecr/master/install | sh -s terraform-aws-sample
-cd terraform-aws-sample && make install
+```hcl
+module "ecr" {
+  source          = "git::https://github.com/tmknom/terraform-aws-ecr.git?ref=tags/1.0.0"
+  name            = "minimal"
+  tag_prefix_list = ["release"]
+}
+```
+
+### Complete
+
+```hcl
+module "ecr" {
+  source          = "git::https://github.com/tmknom/terraform-aws-ecr.git?ref=tags/1.0.0"
+  name            = "complete"
+  tag_prefix_list = ["release"]
+
+  only_pull_accounts       = ["123456789012"]
+  push_and_pull_accounts   = ["111111111111"]
+  max_untagged_image_count = 5
+  max_tagged_image_count   = 50
+}
 ```
 
 ## Examples
