@@ -55,9 +55,9 @@ data "aws_iam_policy_document" "push_and_pull" {
 }
 
 locals {
-  only_pull_accounts = "${formatlist("arn:aws:iam::%s:root", var.only_pull_accounts)}"
+  only_pull_accounts     = "${formatlist("arn:aws:iam::%s:root", var.only_pull_accounts)}"
   push_and_pull_accounts = "${formatlist("arn:aws:iam::%s:root", var.push_and_pull_accounts)}"
-  current_account    = "${format("arn:aws:iam::%s:root", data.aws_caller_identity.current.account_id)}"
+  current_account        = "${format("arn:aws:iam::%s:root", data.aws_caller_identity.current.account_id)}"
 }
 
 data "aws_caller_identity" "current" {}
