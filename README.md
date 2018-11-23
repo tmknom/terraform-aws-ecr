@@ -22,11 +22,23 @@ cd terraform-aws-sample && make install
 
 ## Inputs
 
-Write your Terraform module inputs.
+| Name                     | Description                                                                  |  Type  | Default | Required |
+| ------------------------ | ---------------------------------------------------------------------------- | :----: | :-----: | :------: |
+| name                     | Name of the repository.                                                      | string |    -    |   yes    |
+| tag_prefix_list          | List of image tag prefixes on which to take action with lifecycle policy.    |  list  |    -    |   yes    |
+| max_tagged_image_count   | The maximum number of tagged images that you want to retain in repository.   | string |  `30`   |    no    |
+| max_untagged_image_count | The maximum number of untagged images that you want to retain in repository. | string |   `1`   |    no    |
+| only_pull_accounts       | AWS accounts which pull only.                                                |  list  |  `[]`   |    no    |
+| push_and_pull_accounts   | AWS accounts which push and pull.                                            |  list  |  `[]`   |    no    |
 
 ## Outputs
 
-Write your Terraform module outputs.
+| Name                       | Description                                                                                        |
+| -------------------------- | -------------------------------------------------------------------------------------------------- |
+| ecr_repository_arn         | Full ARN of the repository.                                                                        |
+| ecr_repository_name        | The name of the repository.                                                                        |
+| ecr_repository_registry_id | The registry ID where the repository was created.                                                  |
+| ecr_repository_url         | The URL of the repository (in the form aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName) |
 
 ## Development
 
