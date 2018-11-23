@@ -60,6 +60,22 @@ data "aws_iam_policy_document" "push_and_pull" {
   }
 }
 
+# https://www.terraform.io/docs/providers/aws/r/ecr_lifecycle_policy.html
+resource "aws_ecr_lifecycle_policy" "default" {
+  repository = "${aws_ecr_repository.default.name}"
+  policy     = "${data.template_file.ecr_lifecycle_policy.rendered}"
+}
+
+data "template_file" "ecr_lifecycle_policy" {
+  template = "${file("${path.module}/ecr_lifecycle_policy.json")}"
+
+  vars {
+    max_untagged_image_count = "${var.max_untagged_image_count}"
+    max_tagged_image_count   = "${var.max_tagged_image_count}"
+    tag_prefix_list          = "${jsonencode(var.tag_prefix_list)}"
+  }
+}
+
 locals {
   only_pull_accounts     = "${formatlist("arn:aws:iam::%s:root", var.only_pull_accounts)}"
   push_and_pull_accounts = "${formatlist("arn:aws:iam::%s:root", var.push_and_pull_accounts)}"
