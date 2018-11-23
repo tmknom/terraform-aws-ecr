@@ -15,5 +15,5 @@ output "ecr_repository_registry_id" {
 
 output "ecr_repository_url" {
   value       = "${aws_ecr_repository.default.repository_url}"
-  description = "The URL of the repository (in the form aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName."
+  description = "The URL of the repository (in the form aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName)"
 }
