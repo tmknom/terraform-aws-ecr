@@ -6,6 +6,17 @@
 
 Terraform module which creates ECR resources on AWS.
 
+## Description
+
+Provision [ECR Repository](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html),
+[Repository Policy](https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicies.html) and
+[Lifecycle Policy](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
+
+This module provides recommended settings:
+
+- Enable cross account access
+- Automation of cleaning up unused images
+
 ## Usage
 
 ### Minimal
