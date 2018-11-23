@@ -1,0 +1,29 @@
+{
+  "rules": [
+    {
+      "rulePriority": 1,
+      "description": "Keep last ${max_untagged_image_count} untagged images",
+      "selection": {
+        "tagStatus": "untagged",
+        "countType": "imageCountMoreThan",
+        "countNumber": ${max_untagged_image_count}
+      },
+      "action": {
+        "type": "expire"
+      }
+    },
+    {
+      "rulePriority": 2,
+      "description": "Keep last ${max_tagged_image_count} tagged images",
+      "selection": {
+        "tagStatus": "tagged",
+        "tagPrefixList": ${tag_prefix_list},
+        "countType": "imageCountMoreThan",
+        "countNumber": ${max_tagged_image_count}
+      },
+      "action": {
+        "type": "expire"
+      }
+    }
+  ]
+}
