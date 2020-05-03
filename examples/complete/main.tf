@@ -9,8 +9,8 @@ module "ecr" {
   # So, this example uses a valid account, that is the CloudTrail Service Account.
   # https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-supported-regions.html
 
-  only_pull_accounts       = ["${data.aws_cloudtrail_service_account.main.id}"]
-  push_and_pull_accounts   = ["${data.aws_cloudtrail_service_account.main.id}"]
+  only_pull_accounts       = [data.aws_cloudtrail_service_account.main.id]
+  push_and_pull_accounts   = [data.aws_cloudtrail_service_account.main.id]
   max_untagged_image_count = 5
   max_tagged_image_count   = 50
 }
