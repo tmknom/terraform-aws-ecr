@@ -5,6 +5,9 @@
 # https://www.terraform.io/docs/providers/aws/r/ecr_repository.html
 resource "aws_ecr_repository" "default" {
   name = var.name
+  image_scanning_configuration {
+    scan_on_push = var.scan_on_push
+  }
 }
 
 # https://www.terraform.io/docs/providers/aws/r/ecr_repository_policy.html
