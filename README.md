@@ -39,6 +39,7 @@ module "ecr" {
   source          = "git::https://github.com/tmknom/terraform-aws-ecr.git?ref=tags/2.0.0"
   name            = "complete"
   tag_prefix_list = ["release"]
+  scan_on_push    = true
 
   only_pull_accounts       = ["123456789012"]
   push_and_pull_accounts   = ["111111111111"]
@@ -76,7 +77,7 @@ module "ecr" {
 | max_untagged_image_count | The maximum number of untagged images that you want to retain in repository. | `number`       | `1`     |    no    |
 | only_pull_accounts       | AWS accounts which pull only.                                                | `list(string)` | `[]`    |    no    |
 | push_and_pull_accounts   | AWS accounts which push and pull.                                            | `list(string)` | `[]`    |    no    |
-| scan_on_push             | Whether images should automatically be scanned on push or not.               | `bool`         | false   |    no    |
+| scan_on_push             | Whether images should automatically be scanned on push or not.               | `bool`         | `false` |    no    |
 
 ## Outputs
 
