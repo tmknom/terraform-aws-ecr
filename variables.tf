@@ -31,3 +31,9 @@ variable "max_tagged_image_count" {
   type        = number
   description = "The maximum number of tagged images that you want to retain in repository."
 }
+
+variable "scan_on_push" {
+  default     = false
+  type        = bool
+  description = "Whether images should automatically be scanned on push or not."
+}

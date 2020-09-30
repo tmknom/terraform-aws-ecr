@@ -76,6 +76,7 @@ module "ecr" {
 | max_untagged_image_count | The maximum number of untagged images that you want to retain in repository. | `number`       | `1`     |    no    |
 | only_pull_accounts       | AWS accounts which pull only.                                                | `list(string)` | `[]`    |    no    |
 | push_and_pull_accounts   | AWS accounts which push and pull.                                            | `list(string)` | `[]`    |    no    |
+| scan_on_push             | Whether images should automatically be scanned on push or not.               | `bool`         | false   |    no    |
 
 ## Outputs
 
