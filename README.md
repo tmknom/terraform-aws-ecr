@@ -39,6 +39,7 @@ module "ecr" {
   source          = "git::https://github.com/tmknom/terraform-aws-ecr.git?ref=tags/2.0.0"
   name            = "complete"
   tag_prefix_list = ["release"]
+  scan_on_push    = true
 
   only_pull_accounts       = ["123456789012"]
   push_and_pull_accounts   = ["111111111111"]
