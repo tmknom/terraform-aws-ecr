@@ -3,7 +3,7 @@
 # https://docs.aws.amazon.com/AmazonECR/latest/userguide/what-is-ecr.html
 
 # https://www.terraform.io/docs/providers/aws/r/ecr_repository.html
-resource "aws_ecr_repository" "default" {
+resource "aws_ecr_repository" "this" {
   name = var.name
   image_scanning_configuration {
     scan_on_push = var.scan_on_push
@@ -11,8 +11,8 @@ resource "aws_ecr_repository" "default" {
 }
 
 # https://www.terraform.io/docs/providers/aws/r/ecr_repository_policy.html
-resource "aws_ecr_repository_policy" "default" {
-  repository = aws_ecr_repository.default.name
+resource "aws_ecr_repository_policy" "this" {
+  repository = aws_ecr_repository.this.name
   policy     = data.aws_iam_policy_document.push_and_pull.json
 }
 
@@ -64,8 +64,8 @@ data "aws_iam_policy_document" "push_and_pull" {
 }
 
 # https://www.terraform.io/docs/providers/aws/r/ecr_lifecycle_policy.html
-resource "aws_ecr_lifecycle_policy" "default" {
-  repository = aws_ecr_repository.default.name
+resource "aws_ecr_lifecycle_policy" "this" {
+  repository = aws_ecr_repository.this.name
 
   policy = jsonencode({
     rules = [
