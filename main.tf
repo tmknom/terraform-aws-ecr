@@ -4,7 +4,7 @@
 
 # https://www.terraform.io/docs/providers/aws/r/ecr_repository.html
 resource "aws_ecr_repository" "this" {
-  name = var.name
+  name                 = var.name
   image_tag_mutability = var.image_tag_mutability
   image_scanning_configuration {
     scan_on_push = var.scan_on_push
