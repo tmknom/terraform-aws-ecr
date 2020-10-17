@@ -69,15 +69,16 @@ module "ecr" {
 
 ## Inputs
 
-| Name                     | Description                                                                  | Type           | Default | Required |
-| ------------------------ | ---------------------------------------------------------------------------- | -------------- | ------- | :------: |
-| name                     | Name of the repository.                                                      | `string`       | n/a     |   yes    |
-| tag_prefix_list          | List of image tag prefixes on which to take action with lifecycle policy.    | `list(string)` | n/a     |   yes    |
-| max_tagged_image_count   | The maximum number of tagged images that you want to retain in repository.   | `number`       | `30`    |    no    |
-| max_untagged_image_count | The maximum number of untagged images that you want to retain in repository. | `number`       | `1`     |    no    |
-| only_pull_accounts       | AWS accounts which pull only.                                                | `list(string)` | `[]`    |    no    |
-| push_and_pull_accounts   | AWS accounts which push and pull.                                            | `list(string)` | `[]`    |    no    |
-| scan_on_push             | Whether images should automatically be scanned on push or not.               | `bool`         | `false` |    no    |
+| Name                     | Description                                                                  | Type           | Default     | Required |
+| ------------------------ | ---------------------------------------------------------------------------- | -------------- | ----------- | :------: |
+| name                     | Name of the repository.                                                      | `string`       | n/a         |   yes    |
+| tag_prefix_list          | List of image tag prefixes on which to take action with lifecycle policy.    | `list(string)` | n/a         |   yes    |
+| image_tag_mutability     | Whether images are allowed to overwrite existing tags.                       | `string`       | `"MUTABLE"` |    no    |
+| max_tagged_image_count   | The maximum number of tagged images that you want to retain in repository.   | `number`       | `30`        |    no    |
+| max_untagged_image_count | The maximum number of untagged images that you want to retain in repository. | `number`       | `1`         |    no    |
+| only_pull_accounts       | AWS accounts which pull only.                                                | `list(string)` | `[]`        |    no    |
+| push_and_pull_accounts   | AWS accounts which push and pull.                                            | `list(string)` | `[]`        |    no    |
+| scan_on_push             | Whether images should automatically be scanned on push or not.               | `bool`         | `false`     |    no    |
 
 ## Outputs
 

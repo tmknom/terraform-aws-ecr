@@ -37,3 +37,9 @@ variable "scan_on_push" {
   type        = bool
   description = "Whether images should automatically be scanned on push or not."
 }
+
+variable "image_tag_mutability" {
+  default     = "MUTABLE"
+  type        = string
+  description = "Whether images are allowed to overwrite existing tags."
+}
