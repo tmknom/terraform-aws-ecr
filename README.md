@@ -26,7 +26,7 @@ This module provides recommended settings:
 
 ```hcl
 module "ecr" {
-  source          = "git::https://github.com/tmknom/terraform-aws-ecr.git?ref=tags/2.2.0"
+  source          = "git::https://github.com/tmknom/terraform-aws-ecr.git?ref=tags/2.3.0"
   name            = "minimal"
   tag_prefix_list = ["release"]
 }
@@ -36,10 +36,11 @@ module "ecr" {
 
 ```hcl
 module "ecr" {
-  source          = "git::https://github.com/tmknom/terraform-aws-ecr.git?ref=tags/2.2.0"
-  name            = "complete"
-  tag_prefix_list = ["release"]
-  scan_on_push    = true
+  source               = "git::https://github.com/tmknom/terraform-aws-ecr.git?ref=tags/2.3.0"
+  name                 = "complete"
+  tag_prefix_list      = ["release"]
+  scan_on_push         = true
+  image_tag_mutability = "IMMUTABLE"
 
   only_pull_accounts       = ["123456789012"]
   push_and_pull_accounts   = ["111111111111"]

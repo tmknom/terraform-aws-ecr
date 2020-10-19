@@ -1,8 +1,9 @@
 module "ecr" {
-  source          = "../../"
-  name            = "example"
-  tag_prefix_list = ["release"]
-  scan_on_push    = true
+  source               = "../../"
+  name                 = "example"
+  tag_prefix_list      = ["release"]
+  scan_on_push         = true
+  image_tag_mutability = "IMMUTABLE"
 
   # If invalid account such as "123456789012" is specified, then cause error with following message.
   # Invalid parameter at 'PolicyText' failed to satisfy constraint: 'Invalid repository policy provided'
