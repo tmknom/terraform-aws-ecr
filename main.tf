@@ -4,8 +4,16 @@
 
 # https://www.terraform.io/docs/providers/aws/r/ecr_repository.html
 resource "aws_ecr_repository" "this" {
-  name                 = var.name
+  name = var.name
+
+  # The tag mutability setting for the repository.
+  # Must be one of: MUTABLE or IMMUTABLE.
+  # https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-tag-mutability.html
   image_tag_mutability = var.image_tag_mutability
+
+  # The image scanning configuration for the repository.
+  # Uses the CVEs database from the open source Clair project and provides you with a list of scan findings.
+  # https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html
   image_scanning_configuration {
     scan_on_push = var.scan_on_push
   }
