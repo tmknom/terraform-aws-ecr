@@ -3,7 +3,7 @@ on:
   pull_request:
 
 env:
-  TERRAFORM_VERSION: 0.12.24
+  TERRAFORM_VERSION: 0.14.3
   AWS_DEFAULT_REGION: us-east-1
 
 jobs:
