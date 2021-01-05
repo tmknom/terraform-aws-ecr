@@ -60,7 +60,7 @@ module "ecr" {
 
 | Name      | Version |
 | --------- | ------- |
-| terraform | >= 0.12 |
+| terraform | >= 0.14 |
 
 ## Providers
 
