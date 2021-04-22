@@ -15,6 +15,10 @@ module "ecr" {
   push_and_pull_accounts   = [data.aws_cloudtrail_service_account.main.id]
   max_untagged_image_count = 5
   max_tagged_image_count   = 50
+  tags = {
+    Terraform   = "true"
+    Environment = "dev"
+  }
 }
 
 data "aws_cloudtrail_service_account" "main" {}

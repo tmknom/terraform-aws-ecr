@@ -43,3 +43,9 @@ variable "image_tag_mutability" {
   type        = string
   description = "Whether images are allowed to overwrite existing tags."
 }
+
+variable "tags" {
+  description = "A map of tags to add to ecr repository"
+  type        = map(string)
+  default     = {}
+}
